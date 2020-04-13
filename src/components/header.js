@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import Link from "@material-ui/core/Link"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -17,13 +17,7 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+        <Link href="/" style={{ color: `white`, textDecoration: `none` }}>
           {siteTitle}
         </Link>
       </h1>
