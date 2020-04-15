@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+// Todo: Remove this line, We dont need the CSS here we will use materials theme framework later and materials useStyles Hooks
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      {/* TODO: Change this to a material Container */}
       <div
         style={{
           margin: `0 auto`,
