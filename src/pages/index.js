@@ -1,7 +1,9 @@
 import React from "react"
 
 import Link from "@material-ui/core/Link"
+
 import Typography from "@material-ui/core/Typography"
+
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -9,17 +11,17 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-
+    <br />
     <Typography variant="h3" gutterBottom>
       Hi people
     </Typography>
 
-    <Typography variant="h7" gutterBottom>
+    <Typography variant="h6" gutterBottom>
       Welcome to your new Gatsby site.
     </Typography>
-    <br></br>
+    <br />
 
-    <Typography variant="h7" gutterBottom>
+    <Typography variant="h6" gutterBottom>
       Now go build something great.
     </Typography>
 
