@@ -9,6 +9,7 @@ const NotFoundPage = () => (
     <Typography variant="h3" gutterBottom>
       NOT FOUND
     </Typography>
+    {/* TODO: A dom object that does not contain any elements can be a single element making it cleaner eg: <br/> */}
     <br></br>
 
     <Typography variant="h7" gutterBottom>

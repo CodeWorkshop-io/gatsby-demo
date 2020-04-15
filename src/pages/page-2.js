@@ -1,6 +1,8 @@
 import React from "react"
 import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
+
+// TODO: A note here, I like separating libraries and components we have built with a space and to group external libraries at the top of the code
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 

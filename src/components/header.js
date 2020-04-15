@@ -1,6 +1,11 @@
+// TODO: Change the ordering, react should be on top, then proptypes, then imports from other libraries
+
 import Link from "@material-ui/core/Link"
 import PropTypes from "prop-types"
 import React from "react"
+
+// TODO: I prefer importing like this from material, just simplifies and groups imports making code cleaner
+// import { Link, Typography } from "@material-ui/core"
 
 const Header = ({ siteTitle }) => (
   <header
@@ -9,6 +14,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
+    {/* TODO: Update this to use Material Appbar and Toolbar */}
     <div
       style={{
         margin: `0 auto`,
