@@ -10,6 +10,7 @@ const NotFoundPage = () => (
     <Typography variant="h4" gutterBottom>
       NOT FOUND
     </Typography>
+
     <br />
 
     <Typography variant="h7" gutterBottom>
