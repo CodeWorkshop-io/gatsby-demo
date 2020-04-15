@@ -1,5 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import Typography from "@material-ui/core/Typography"
+import Link from "@material-ui/core/Link"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,9 +9,17 @@ import SEO from "../components/seo"
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <br />
+    <Typography variant="h3" gutterBottom>
+      Hi from the second page
+    </Typography>
+
+    <Typography variant="h6" gutterBottom>
+      Welcome to page 2
+    </Typography>
+    <pre />
+
+    <Link href="/">Go back to the homepage</Link>
   </Layout>
 )
 
