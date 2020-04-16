@@ -27,6 +27,8 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link href="page-2">Go to page 2</Link>
+    <br />
+    <Link href="Characters">Lists of Characters</Link>
   </Layout>
 )
 
