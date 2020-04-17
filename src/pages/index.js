@@ -26,6 +26,10 @@ const IndexPage = () => (
     <Link href="page-2">Go to page 2</Link>
     <br />
     <Link href="Characters">Lists of Characters</Link>
+    <br />
+    <Link href="Locations">Lists of Locations</Link>
+    <br />
+    <Link href="Episodes">Lists of Episodes</Link>
   </Layout>
 )
 
