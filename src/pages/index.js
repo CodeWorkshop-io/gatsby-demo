@@ -1,5 +1,7 @@
 import React from "react"
+
 import { Link, Typography } from "@material-ui/core"
+
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
