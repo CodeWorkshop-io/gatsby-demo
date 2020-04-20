@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import axios from "axios"
+import Characters from "../pages/Characters"
 
 import {
   Card,
@@ -9,25 +9,17 @@ import {
   Typography,
 } from "@material-ui/core"
 
-const CharacterCard = () => {
-  const [characters, setCharacters] = useState()
-
-  const getCharacterCard = async () => {
-    const data = await axios.get("https://rickandmortyapi.com/api/character/")
-
-    setCharacters(data)
-  }
-
+const CharacterCard = ({ onSubmit, children }) => {
   return (
     <Card>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
           List of Characters
         </Typography>
+        <Typography>{children}</Typography>
       </CardContent>
-      <pre>{JSON.stringify(characters, null, 2)}</pre>
       <CardActions>
-        <Button size="medium" onClick={getCharacterCard}>
+        <Button size="medium" onClick={onSubmit}>
           GET
         </Button>
       </CardActions>

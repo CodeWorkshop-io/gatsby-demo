@@ -1,21 +1,24 @@
 import React, { useState } from "react"
 import axios from "axios"
 
-import { Button, LinearProgress, Typography } from "@material-ui/core"
+import { LinearProgress, Typography } from "@material-ui/core"
 
 import Layout from "../components/layout"
+import CharacterCard from "../character/CharacterCard"
 
 const Characters = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const [characters, setCharacters] = useState()
+  const [characters, setCharacters] = useState([])
 
   const getCharacters = async () => {
     setLoading(true)
     try {
-      const data = await axios.get("https://rickandmortyapi.com/api/character/")
+      const response = await axios.get(
+        "https://rickandmortyapi.com/api/character/"
+      )
 
-      setCharacters(data)
+      setCharacters(response)
     } catch (ex) {
       console.error(ex)
       setError(ex.message)
@@ -31,10 +34,10 @@ const Characters = () => {
       {error && <Typography color="error">{error}</Typography>}
 
       <br />
-      <Button variant="contained" onClick={getCharacters} color="primary">
-        GET
-      </Button>
-      <pre>{JSON.stringify(characters, null, 2)}</pre>
+
+      <CharacterCard onSubmit={getCharacters}>
+        <pre>{JSON.stringify(characters, null, 2)}</pre>
+      </CharacterCard>
     </Layout>
   )
 }
