@@ -5,6 +5,7 @@ import Link from "@material-ui/core/Link"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CharacterCard from "../character/CharacterCard"
 
 const SecondPage = () => (
   <Layout>
@@ -20,6 +21,9 @@ const SecondPage = () => (
     <pre />
 
     <Link href="/">Go back to the homepage</Link>
+    <br />
+    <CharacterCard />
+    <br />
   </Layout>
 )
 
