@@ -1,36 +1,20 @@
-import React, { useState } from "react"
-import axios from "axios"
+import React from "react"
 
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Typography,
-} from "@material-ui/core"
+import { Card, CardActions, Container, Typography } from "@material-ui/core"
 
-const CharacterCard = () => {
-  const [characters, setCharacters] = useState()
-
-  const getCharacterCard = async () => {
-    const data = await axios.get("https://rickandmortyapi.com/api/character/")
-
-    setCharacters(data)
-  }
-
+const CharacterCard = ({ children }) => {
   return (
     <Card>
-      <CardContent>
-        <Typography color="textSecondary" gutterBottom>
+      <Container maxWidth="sm">
+        <Typography
+          component="div"
+          style={{ backgroundColor: "#cfe8fc", height: "80vh" }}
+        >
           List of Characters
+          <Typography>{children}</Typography>
         </Typography>
-      </CardContent>
-      <pre>{JSON.stringify(characters, null, 2)}</pre>
-      <CardActions>
-        <Button size="medium" onClick={getCharacterCard}>
-          GET
-        </Button>
-      </CardActions>
+      </Container>
+      <CardActions></CardActions>
     </Card>
   )
 }
