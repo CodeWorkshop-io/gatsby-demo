@@ -1,28 +1,20 @@
-import React, { useState } from "react"
-import Characters from "../pages/Characters"
+import React from "react"
 
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Typography,
-} from "@material-ui/core"
+import { Card, CardActions, Container, Typography } from "@material-ui/core"
 
-const CharacterCard = ({ onSubmit, children }) => {
+const CharacterCard = ({ children }) => {
   return (
     <Card>
-      <CardContent>
-        <Typography color="textSecondary" gutterBottom>
+      <Container maxWidth="sm">
+        <Typography
+          component="div"
+          style={{ backgroundColor: "#cfe8fc", height: "80vh" }}
+        >
           List of Characters
+          <Typography>{children}</Typography>
         </Typography>
-        <Typography>{children}</Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="medium" onClick={onSubmit}>
-          GET
-        </Button>
-      </CardActions>
+      </Container>
+      <CardActions></CardActions>
     </Card>
   )
 }
