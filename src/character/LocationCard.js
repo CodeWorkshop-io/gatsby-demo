@@ -1,17 +1,22 @@
 import React from "react"
 import {
   makeStyles,
-  Card,
   GridListTile,
+  GridList,
   GridListTileBar,
-  CardContent,
-  CardActions,
   Typography,
 } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 345,
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
+  },
+  gridList: {
+    width: 500,
+    height: 250,
   },
 }))
 
@@ -21,29 +26,27 @@ const LocationCard = props => {
   console.log(props)
 
   return (
-    <Card className={classes.root}>
-      <GridListTile style={{ height: "10vh" }}>
-        <img src={props.image} />
-        <GridListTileBar
-          title={props.name}
-          subtitle={
-            <span>
-              <pre></pre>
-              ID:{props.id} -CREATED: {props.created}
-            </span>
-          }
-        />
-      </GridListTile>
-      <CardContent>
+    <div className={classes.root}>
+      <GridList className={classes.gridList}>
+        <GridListTile cols={2} style={{ height: "10vh" }}>
+          <img src={props.image} />
+          <GridListTileBar
+            title={props.name}
+            subtitle={
+              <span>
+                <pre></pre>
+                ID:{props.id} - CREATED: {props.created}
+              </span>
+            }
+          />
+        </GridListTile>
         <br />
         <Typography variant="body2" color="textSecondary" component="p">
           TYPE: {props.type} <hr />
           DIMENSION: {props.dimension}
-          <br />
         </Typography>
-      </CardContent>
-      <CardActions disableSpacing></CardActions>
-    </Card>
+      </GridList>
+    </div>
   )
 }
 
