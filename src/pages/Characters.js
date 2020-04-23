@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-import { Grid } from "@material-ui/core"
+import { TableContainer, Table } from "@material-ui/core"
 
 import Layout from "../components/layout"
 import CharacterCard from "../character/CharacterCard"
@@ -26,20 +26,16 @@ const Characters = () => {
     getCharacters()
   }, [])
 
-  // There are 2 options here, a GridList or a Grid of Cards
-  // https://material-ui.com/components/grid-list/
-  // https://material-ui.com/components/cards/
   return (
     <Layout>
       <br />
-      <Grid container spacing={2}>
+      <Table container spacing={2}>
         {characters.map((c, i) => (
-          <Grid key={i} item xs={3}>
-            {/* You want to spread the charater items from the map into the character card so that we can access the props from the api values */}
+          <TableContainer key={i} item xs={6}>
             <CharacterCard {...c} />
-          </Grid>
+          </TableContainer>
         ))}
-      </Grid>
+      </Table>
     </Layout>
   )
 }

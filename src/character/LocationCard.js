@@ -29,7 +29,6 @@ const LocationCard = props => {
     <div className={classes.root}>
       <GridList className={classes.gridList}>
         <GridListTile cols={2} style={{ height: "10vh" }}>
-          <img src={props.image} />
           <GridListTileBar
             title={props.name}
             subtitle={
