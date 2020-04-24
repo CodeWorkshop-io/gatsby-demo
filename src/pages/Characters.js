@@ -32,13 +32,6 @@ const Characters = props => {
   return (
     <Layout>
       <br />
-      <Table container spacing={2}>
-        {characters.map((c, i) => (
-          <TableContainer key={i} item xs={4}>
-            <CharacterCard {...c} />
-          </TableContainer>
-        ))}
-      </Table>
     </Layout>
   )
 }
