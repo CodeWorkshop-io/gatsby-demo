@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import Button from "@material-ui/core/Button"
+import { Button } from "@material-ui/core/Button"
 import Layout from "../components/layout"
 
-const Locations = () => {
+const Locations = props => {
   const [locations, setLocations] = useState()
+
   const [loading, setLoading] = useState(false)
 
-  const [currentPage, setCurrentPage] = useState(1) //for beginning at the first page
-
-  const [locationPerPage, setLocationPerPage] = useState(10) // how many do you want per page
+  const [pages, setPages] = useState(1) // how many do you want per page
 
   useEffect(() => {
     async function getLocations() {
@@ -23,6 +22,21 @@ const Locations = () => {
 
         setLocations(result)
 
+        const nextItem = props => {
+          pages = pages + 1 // increase pages by one
+          pages = pages % locations.length // if we've gone too high, start from `0` again
+          return locations[pages] // give us back the item of where we are now
+        }
+
+        const prevItem = props => {
+          if (pages === 0) {
+            // pages would become 0
+            pages = locations.length // so put it at the other end of the array
+          }
+          pages = pages - 1 // decrease by one
+          return locations[pages] // give us back the item of where we are now
+        }
+
         setLoading(false)
       } catch (e) {
         console.error(e)
@@ -32,31 +46,15 @@ const Locations = () => {
   }, [])
   console.log(locations)
 
-  //Get Current Locations
-  const indexOfLastLocation = currentPage * locationPerPage
-  const indexOfFirstLocation = indexOfLastLocation - locationPerPage
-  const currentLocation = locations.slice(
-    indexOfFirstLocation,
-    indexOfLastLocation
-  )
-  const IndexOfNextLocation = indexOfFirstLocation - locationPerPage
-  const NextLocation = locations.slice(
-    indexOfFirstLocation,
-    IndexOfNextLocation
-  )
-
   return (
     <Layout>
       <br />
-
-      <Button variant="contained" onClick={currentLocation}>
+      <pre>{JSON.stringify(locations, null, 2)}</pre>
+      <Button variant="contained" onClick={props}>
         Previous
-        <pre>{JSON.stringify(currentLocation, null, 2)}</pre>
       </Button>
-
-      <Button variant="contained" onClick={NextLocation}>
+      <Button variant="contained" onClick={props}>
         Next
-        <pre>{JSON.stringify(NextLocation, null, 2)}</pre>
       </Button>
     </Layout>
   )
